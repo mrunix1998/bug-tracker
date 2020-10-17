@@ -1,0 +1,25 @@
+# Automatically created bt "no-headache-django" project.
+# Star me on github http://github.com/mrsaemir/no-headache-django
+
+version: '3'
+
+services:
+  web:
+    restart: always
+    build: .
+    ports:
+      - 8000:8000
+    networks:
+      project_network:
+    volumes:
+      - ./:/home/user/project_core
+      - ../development_data_mW8e03/static:/home/user/static/
+      - ../development_data_mW8e03/media:/home/user/media/
+
+    command: bash -c "python manage.py runserver 0.0.0.0:8000"
+
+    env_file:
+      - vars.env
+
+networks:
+  project_network:

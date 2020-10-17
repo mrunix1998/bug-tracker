@@ -1,0 +1,1 @@
+## Created on 2020-10-17 using NO-HEADACHE-DJANGO automatic project initializer.
