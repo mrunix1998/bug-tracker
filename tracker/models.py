@@ -9,6 +9,7 @@ class Bug(models.Model):
     due_date = models.DateTimeField(null=True)
     description = models.TextField(null=True, blank=True)
     closed = models.BooleanField(default=False)
+    is_notified = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
