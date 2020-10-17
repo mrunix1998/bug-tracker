@@ -28,4 +28,4 @@ RUN chmod +x ./entrypoint.sh
 
 # Opening port 8000:
 EXPOSE 8000
-CMD ['bash', './entrypoint.sh']
+CMD ["bash", "./entrypoint.sh"]
