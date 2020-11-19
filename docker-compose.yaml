@@ -4,6 +4,7 @@
 version: '3'
 
 services:
+
   web:
     restart: always
     build: .
@@ -11,6 +12,8 @@ services:
       - 8000:8000
     networks:
       project_network:
+    depends_on:
+      - db
     volumes:
       - ./:/home/user/project_core
       - ../development_data_mW8e03/static:/home/user/static/
@@ -20,6 +23,18 @@ services:
 
     env_file:
       - vars.env
+
+  db:
+    restart: always
+    image: postgres:11.1-alpine
+    environment:
+      - POSTGRES_USER=some_user
+      - POSTGRES_PASSWORD=some_password
+      - POSTGRES_DB=some_db
+    networks:
+      project_network:
+    volumes:
+      - ../development_data_16GXPX/postgres:/var/lib/postgresql/data
 
 networks:
   project_network:

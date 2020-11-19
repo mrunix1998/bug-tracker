@@ -81,8 +81,12 @@ WSGI_APPLICATION = 'bug_tracker.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST', ''),
+        'PORT': os.environ.get('DB_PORT'),
     }
 }
 
@@ -130,13 +134,3 @@ STATIC_ROOT = '/home/user/static/'
 
 MEDIA_ROOT = '/home/user/media/'
 
-
-EMAIL_USE_TLS = True
-
-EMAIL_HOST = 'smtp.gmail.com'
-
-EMAIL_PORT = 587
-
-EMAIL_HOST_USER = 'bugs.manyx.tracker@gmail.com'
-
-EMAIL_HOST_PASSWORD = 'manyxmanyx'

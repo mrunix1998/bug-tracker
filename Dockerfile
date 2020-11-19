@@ -10,6 +10,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Database-related libraries:
+RUN apt update && apt install -y libpq-dev
 
 # Setting project's working directory:
 WORKDIR /home/user/project_core
